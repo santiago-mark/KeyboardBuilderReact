@@ -26,7 +26,7 @@ class App extends Component {
                       </Nav>
                   </div>
                 </Navbar>
-                
+
                 <Navbar>
                   <div className="container">
                     <Nav>
@@ -60,12 +60,12 @@ class App extends Component {
 
                 <Container>
                   <Row id="keyboardRow">
-                    <Col><h3>Components</h3></Col>
-                    <Col><h3>Selection</h3></Col>
-                    <Col><h3>Modded?</h3></Col>
-                    <Col><h3>Price</h3></Col>
-                    <Col><h3>Retailer</h3></Col>
-                    <Col><h3>Information</h3></Col>
+                    <Col><h4>Components</h4></Col>
+                    <Col><h4>Selection</h4></Col>
+                    <Col><h4>Modded?</h4></Col>
+                    <Col><h4>Price</h4></Col>
+                    <Col><h4>Retailer</h4></Col>
+                    <Col md="4"><h4>Information</h4></Col>
                   </Row>
 
                   <Row id="keyboardRow">
@@ -79,19 +79,19 @@ class App extends Component {
                         <Input type="checkbox" />
                     </Col>
                     <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                      <FormGroup>
+                        <Input type="price" name="price" id="keyboardCasePrice" />
+                      </FormGroup>
                     </Col>
                     <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                      <FormGroup>
+                        <Input type="retailer" name="retailer" id="keyboardCaseRetailer" />
+                      </FormGroup>
                     </Col>
-                    <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                    <Col md="4">
+                      <FormGroup>
+                        <Input type="textarea" name="information" id="keyboardCaseInfo" />
+                      </FormGroup>
                     </Col>
                   </Row>
 
@@ -106,19 +106,19 @@ class App extends Component {
                         <Input type="checkbox" />
                     </Col>
                     <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                      <FormGroup>
+                        <Input type="price" name="price" id="switchesPrice" />
+                      </FormGroup>
                     </Col>
                     <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                      <FormGroup>
+                        <Input type="retailer" name="retailer" id="switchesRetailer" />
+                      </FormGroup>
                     </Col>
-                    <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                    <Col md="4">
+                      <FormGroup>
+                        <Input type="textarea" name="text" id="switchesInfo" />
+                      </FormGroup>
                     </Col>
                   </Row>
                   
@@ -133,19 +133,19 @@ class App extends Component {
                         <Input type="checkbox" />
                     </Col>
                     <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                      <FormGroup>
+                        <Input type="price" name="price" id="platePrice" />
+                      </FormGroup>
                     </Col>
                     <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                      <FormGroup>
+                        <Input type="retailer" name="retailer" id="plateRetailer" />
+                      </FormGroup>
                     </Col>
-                    <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                    <Col md="4">
+                      <FormGroup>
+                        <Input type="textarea" name="text" id="plateInfo" />
+                      </FormGroup>
                     </Col>
                   </Row>
 
@@ -160,19 +160,19 @@ class App extends Component {
                         <Input type="checkbox" />
                     </Col>
                     <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                      <FormGroup>
+                        <Input type="price" name="price" id="cablePrice" />
+                      </FormGroup>
                     </Col>
                     <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                      <FormGroup>
+                        <Input type="retailer" name="retailer" id="cableRetailer" />
+                      </FormGroup>
                     </Col>
-                    <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                    <Col md="4">
+                      <FormGroup>
+                        <Input type="textarea" name="text" id="cableInfo" />
+                      </FormGroup>
                     </Col>
                   </Row>
 
@@ -187,19 +187,19 @@ class App extends Component {
                         <Input type="checkbox" />
                     </Col>
                     <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                      <FormGroup>
+                        <Input type="price" name="price" id="otherPrice" />
+                      </FormGroup>
                     </Col>
                     <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                      <FormGroup>
+                        <Input type="retailer" name="retailer" id="otherRetailer" />
+                      </FormGroup>
                     </Col>
-                    <Col>
-                    <FormGroup>
-                      <Input type="textarea" name="text" id="exampleText" />
-                    </FormGroup>
+                    <Col md="4">
+                      <FormGroup>
+                        <Input type="textarea" name="text" id="otherInfo" />
+                      </FormGroup>
                     </Col>
                   </Row>
                 </Container>

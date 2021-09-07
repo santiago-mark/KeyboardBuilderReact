@@ -8,7 +8,12 @@ import './App.css';
 class App extends Component {
     render() {
         return (
+          <BrowserRouter>
             <div className="App">
+              <Main />
+              
+              {/* This is for the header component
+
                 <Navbar dark color="primary">
                   <div className="container">
                       <NavbarBrand href="/">Keyboard Builder</NavbarBrand>
@@ -53,7 +58,10 @@ class App extends Component {
                     </Nav>
                   </div>
                 </Navbar>
+              */}
 
+              {/* This is for the build planner
+              
                 <Jumbotron>
                   <h1>Plan Build</h1>
                 </Jumbotron>
@@ -203,7 +211,10 @@ class App extends Component {
                     </Col>
                   </Row>
                 </Container>
+              */}
+
             </div>
+          </BrowserRouter>
         );
     }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './HeaderComponent';
 import BuildPlanner from './BuildPlannerComponent';
+import SearchKeyboardCase from './SearchKeyboardCaseComponent';
 
 class Main extends Component {
     constructor(props) {
@@ -12,7 +13,11 @@ class Main extends Component {
         return (
             <div>
                 <Header />
+                {/*
                 <BuildPlanner />
+                
+                */}
+                <SearchKeyboardCase />
             </div>
         );
     }

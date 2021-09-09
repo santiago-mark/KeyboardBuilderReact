@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css';
 
 import './App.css';
+import './css/layout.css'
 
 class App extends Component {
     render() {

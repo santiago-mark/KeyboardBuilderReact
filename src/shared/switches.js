@@ -12,5 +12,18 @@ export const SWITCHES = [
         springWeight:
         
         */
+        id: 0,
+        name: "Cherry MX Blue",
+        type: "Clicky"
+    },
+    {
+        id: 1,
+        name: "Cherry MX Red",
+        type: "Linear"
+    },
+    {
+        id: 2,
+        name: "Cherry MX Brown",
+        type: "Tactile"
     }
 ]

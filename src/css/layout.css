@@ -45,16 +45,15 @@ html, body {
   
   .Sidebar {
     display: inline-block;
-    width: 35%;
+    width: 20%;
     background: white;
-
+    padding: 3em;
+    vertical-align: top;
   }
   
   .Content {
     display: inline-block;
-    width: 65%;
+    width: 80%;
     background: #3E3E3E;
     padding: 3em;
-    overflow-y: scroll;
-    overflow-x: hidden;
   }

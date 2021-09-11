@@ -1,44 +1,53 @@
 import React, { Component }  from 'react';
-import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Form, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 function RenderSwitches({switches}) {
     if(switches) {
         return (
-            <div classname="col-md-5 m-1">
-                {switches.map(mechSwitch =>
-                    <Card onClick={() => alert(`You picked ${mechSwitch.name}`)}>
-                        <CardBody>
-                            <CardTitle>{mechSwitch.name}</CardTitle>
-                            <CardText>{mechSwitch.type}</CardText>
-                        </CardBody>
-                    </Card>)}
-                
-            </div>
+            //<Form onSubmit={this.handleSubmit}>  
+                <div classname="col-md-5 m-1">
+                    {switches.map(mechSwitch =>
+                        <Card onClick={() => alert(`You selected ${mechSwitch.name}`)}>
+                            <CardBody>
+                                <CardTitle>{mechSwitch.name}</CardTitle>
+                                <CardText>{mechSwitch.type}</CardText>
+                            </CardBody>
+                        </Card>)}
+                    
+                </div>
+           // </Form>
         )
     }
    return <div></div>
 }
 
-{/*
-function SearchSwitch(props){
-
-    if (props.switches) {
-        return (
-            <div className="container">
-                <div className="row">
-                    <RenderSwitches switches={props.switches} />
-                </div>
-            </div>
-        )
-    }
-    return <div />
-}
-*/}
-
 class SearchSwitch extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            name: '',
+            type: ''
+        };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSelected = this.handleSelected.bind(this);
+    }
+
+    handleSubmit(event) {
+        console.log('The chosen switch is' + JSON.stringify(this.state.mechSwitch.name));
+        alert('Current switch is: ' + JSON.stringify(this.state.mechSwitch.name));
+        event.preventDefault();
+    }
+
+    handleSelected(event) {
+        this.setState(
+            {
+                name: event.name,
+                type: event.type
+            }
+        );
     }
 
     render() {
@@ -46,9 +55,8 @@ class SearchSwitch extends Component {
             <React.Fragment>
                 <Jumbotron>
                     Switches
-                </Jumbotron>  
+                </Jumbotron>     
 
-                          
                     <div className="Sidebar">
                         <Link to="/buildplanner">
                           <Button color="primary">Back</Button>{''}
@@ -68,70 +76,6 @@ class SearchSwitch extends Component {
                                 <RenderSwitches switches={this.props.switches} />
                             </div>
                         </div>
-                        {/*
-                        <CardDeck>
-                        
-                        <Card>
-                            <CardBody>
-                                <CardTitle>{SWITCHES[0].name}</CardTitle>
-                                <CardText>{SWITCHES[1].type}</CardText>
-                            </CardBody>
-                        </Card>
-
-                            <Card>
-                            <CardBody>
-                                <CardTitle tag="h5">Card title</CardTitle>
-                                <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                                <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-                                <Button>Button</Button>
-                            </CardBody>
-                            </Card>
-                            <Card>
-                            <CardBody>
-                                <CardTitle tag="h5">Card title</CardTitle>
-                                <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                                <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-                                <Button>Button</Button>
-                            </CardBody>
-                            </Card>
-                            <Card>
-                            <CardBody>
-                                <CardTitle tag="h5">Card title</CardTitle>
-                                <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                                <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-                                <Button>Button</Button>
-                            </CardBody>
-                            </Card>
-                        </CardDeck>
-
-                        <CardDeck>
-                        
-                        <Card>
-                        <CardBody>
-                            <CardTitle tag="h5">Card title</CardTitle>
-                            <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                            <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                        </Card>
-                        <Card>
-                        <CardBody>
-                            <CardTitle tag="h5">Card title</CardTitle>
-                            <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                            <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                        </Card>
-                        <Card>
-                        <CardBody>
-                            <CardTitle tag="h5">Card title</CardTitle>
-                            <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                            <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                        </Card>
-                        </CardDeck>
-                        */}
                     </div>
                 
             </React.Fragment>

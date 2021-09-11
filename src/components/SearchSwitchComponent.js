@@ -1,42 +1,13 @@
 import React, { Component }  from 'react';
 import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle } from 'reactstrap';
-
-const SWITCHES = [
-    {
-        /*
-        name:
-        type: (clicky, linear, tactile, other)
-        force:
-        manufacturer:
-        materialTop:
-        materialBottom:
-        materialStem:
-        springType:
-        springWeight:
-        
-        */
-        id: 0,
-        name: "Cherry MX Blue",
-        type: "Clicky"
-    },
-    {
-        id: 1,
-        name: "Cherry MX Red",
-        type: "Linear"
-    },
-    {
-        id: 2,
-        name: "Cherry MX Brown",
-        type: "Tactile"
-    }
-]
+import { Link } from 'react-router-dom';
 
 function RenderSwitches({switches}) {
     if(switches) {
         return (
             <div classname="col-md-5 m-1">
                 {switches.map(mechSwitch =>
-                    <Card>
+                    <Card onClick={() => alert(`You picked ${mechSwitch.name}`)}>
                         <CardBody>
                             <CardTitle>{mechSwitch.name}</CardTitle>
                             <CardText>{mechSwitch.type}</CardText>
@@ -79,6 +50,10 @@ class SearchSwitch extends Component {
 
                           
                     <div className="Sidebar">
+                        <Link to="/buildplanner">
+                          <Button color="primary">Back</Button>{''}
+                        </Link>
+                        
                         <Container>
                             <Row>Filter</Row>
                             <Row><Input type="checkbox" /> Clicky</Row>
@@ -90,7 +65,7 @@ class SearchSwitch extends Component {
                     <div className="Content">
                         <div className="container">
                             <div className="row">
-                                <RenderSwitches switches={SWITCHES} />
+                                <RenderSwitches switches={this.props.switches} />
                             </div>
                         </div>
                         {/*

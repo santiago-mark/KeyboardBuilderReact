@@ -33,7 +33,7 @@ class Header extends Component {
                   <div className="container">
                     <Nav>
                       <NavItem>
-                        <NavLink to="/">
+                        <NavLink to="/buildplanner">
                           Plan Build
                         </NavLink>
                       </NavItem>

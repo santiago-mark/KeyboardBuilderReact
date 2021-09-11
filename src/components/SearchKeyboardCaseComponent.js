@@ -1,6 +1,24 @@
 import React, { Component }  from 'react';
 import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
+function RenderKeyboardCases({keyboardCases}) {
+    if(keyboardCases) {
+        return (
+            <div classname="col-md-5 m-1">
+                {keyboardCases.map(keyboardCase =>
+                    <Card onClick={() => alert(`You picked ${keyboardCase.name}`)}>
+                        <CardBody>
+                            <CardTitle>{keyboardCase.name}</CardTitle>
+                            <CardText>{keyboardCase.formType}</CardText>
+                        </CardBody>
+                    </Card>)}
+                
+            </div>
+        )
+    }
+   return <div></div>
+}
 class SearchKeyboardCase extends Component {
     constructor(props) {
         super(props);
@@ -12,98 +30,33 @@ class SearchKeyboardCase extends Component {
                 <Jumbotron>
                     Keyboard Cases
                 </Jumbotron>  
-
-                <Row>            
-                    <Col md="1">
+   
+                <div className="Sidebar">
+                    <Link to="/buildplanner">
+                          <Button color="primary">Back</Button>{''}
+                    </Link>           
+                    <Container>
                         Filter
-                        <Col><Input type="checkbox" /> Full Size</Col>
-                        <Col><Input type="checkbox" /> 1800</Col>
-                        <Col><Input type="checkbox" /> TenKeyLess</Col>
-                        <Col><Input type="checkbox" /> 75%</Col>
-                        <Col><Input type="checkbox" /> 65%</Col>
-                        <Col><Input type="checkbox" /> 60%</Col>
-                        <Col><Input type="checkbox" /> 40%</Col>
-                        <Col><Input type="checkbox" /> Alice</Col>
-                        <Col><Input type="checkbox" /> Ergo</Col>
-                        <Col><Input type="checkbox" /> Other</Col>
-                    </Col>
+                        <Row><Input type="checkbox" /> Full Size</Row>
+                        <Row><Input type="checkbox" /> 1800</Row>
+                        <Row><Input type="checkbox" /> TenKeyLess</Row>
+                        <Row><Input type="checkbox" /> 75%</Row>
+                        <Row><Input type="checkbox" /> 65%</Row>
+                        <Row><Input type="checkbox" /> 60%</Row>
+                        <Row><Input type="checkbox" /> 40%</Row>
+                        <Row><Input type="checkbox" /> Alice</Row>
+                        <Row><Input type="checkbox" /> Ergo</Row>
+                        <Row><Input type="checkbox" /> Other</Row>
+                    </Container>
+                </div>
 
-                    <Col>
-                    <CardDeck>
-                        {/*
-                        <Navigation
-                        // you can use your own router's api to get pathname
-                        activeItemId="/management/members"
-                        onSelect={({itemId}) => {
-                            // maybe push to the route
-                        }}
-                        
-                        items={[
-                            {
-                            title: 'Dashboard',
-                            itemId: '/dashboard',
-                            // you can use your own custom Icon component as well
-                            // icon is optional
-                            
-                            },
-                            {
-                            title: 'Management',
-                            itemId: '/management',
-                            
-                            subNav: [
-                                {
-                                title: 'Projects',
-                                itemId: '/management/projects',
-                                // Requires v1.9.1+ (https://github.com/abhijithvijayan/react-minimal-side-navigation/issues/13)
-                                
-                                },
-                                {
-                                title: 'Members',
-                                itemId: '/management/members',
-                                
-                                },
-                            ],
-                            },
-                            {
-                            title: 'Another Item',
-                            itemId: '/another',
-                            subNav: [
-                                {
-                                title: 'Teams',
-                                itemId: '/management/teams',
-                                },
-                            ],
-                            },
-                        ]}
-                        /> */}
-
-                        <Card>
-                        <CardBody>
-                            <CardTitle tag="h5">Card title</CardTitle>
-                            <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                            <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                        </Card>
-                        <Card>
-                        <CardBody>
-                            <CardTitle tag="h5">Card title</CardTitle>
-                            <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                            <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                        </Card>
-                        <Card>
-                        <CardBody>
-                            <CardTitle tag="h5">Card title</CardTitle>
-                            <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                            <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                        </Card>
-                    </CardDeck>
-                    </Col>
-                </Row>    
+                <div className="Content">
+                    <div className="container">
+                        <div className="row">
+                            <RenderKeyboardCases keyboardCases={this.props.keyboardCases} />
+                        </div>
+                    </div>
+                </div>   
             </React.Fragment>
         );
     }

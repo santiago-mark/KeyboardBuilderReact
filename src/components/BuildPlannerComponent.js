@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { Navbar, NavbarBrand, Nav, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Button, Input } from 'reactstrap';
 
 class BuildPlanner extends Component{
@@ -30,7 +30,9 @@ class BuildPlanner extends Component{
                         <h5>Keyboard Case</h5>
                     </Col>
                     <Col>
-                        <Button color="primary">Select</Button>{''}
+                      <Link to="/keyboardcases">
+                          <Button color="primary">Select</Button>{''}
+                        </Link>
                     </Col>
                     <Col>
                         <Input type="checkbox" />
@@ -57,7 +59,9 @@ class BuildPlanner extends Component{
                         <h5>Switches</h5>
                     </Col>
                     <Col>
-                        <Button color="primary">Select</Button>{''}
+                        <Link to="/switches">
+                          <Button color="primary">Select</Button>{''}
+                        </Link>
                     </Col>
                     <Col>
                         <Input type="checkbox" />

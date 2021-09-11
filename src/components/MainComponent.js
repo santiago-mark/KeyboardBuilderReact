@@ -7,6 +7,15 @@ import SearchKeyboardCase from './SearchKeyboardCaseComponent';
 import SearchKeycapSet from './SearchKeycapSetComponent';
 import SearchSwitch from './SearchSwitchComponent';
 
+import { CABLE } from '../shared/cable';
+import { KEYBOARDCASE } from '../shared/keyboardCase';
+import { KEYBOARDS } from '../shared/keyboards';
+import { KEYCAPSET } from '../shared/keycapSet';
+import { PCB } from '../shared/pcb';
+import { PLATE } from '../shared/plate';
+import { STABILIZERS } from '../shared/stabilizers';
+import { SWITCHES } from '../shared/switches'
+
 const mapStateToProps = state => {
     return {
         switches: state.switches
@@ -17,6 +26,8 @@ class Main extends Component {
 
     constructor(props) {
         super(props);
+        this.switches = SWITCHES;
+        this.keyboardCases = KEYBOARDCASE
     }
 
     render() {
@@ -42,7 +53,9 @@ class Main extends Component {
             <div>
                 <Header />
                 <Switch>
-                    <Route path='/switches' render={() => <SearchSwitch switches = {this.props.switches} />} />
+                    <Route path='/buildplanner' component={BuildPlanner} />
+                    <Route path='/switches' render={() => <SearchSwitch switches = {this.switches} />} />
+                    <Route path='/keyboardcases' render={() => <SearchKeyboardCase keyboardCases = {this.keyboardCases} />} />
                  </Switch>   
                
                 {/*

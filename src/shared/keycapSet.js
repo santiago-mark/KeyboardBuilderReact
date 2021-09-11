@@ -8,5 +8,15 @@ export const KEYCAPSET = [
         retailPrice:
         
         */
+       name: "PBT Islander",
+       manufacturer: "PBT"
+    },
+    {
+        name: "GMK Metaverse",
+        manufacturer: "GMK"
+    },
+    {
+        name: "KAT Mizu",
+        manufacturer: "KAT"
     }
 ] 

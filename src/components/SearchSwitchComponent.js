@@ -4,20 +4,21 @@ import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
 function RenderSwitches({switches}) {
+    
     if(switches) {
         return (
-            <LocalForm onSubmit={values => this.handleSubmit(values)}>  
+          
                 <div classname="form-group col-md-5 m-1">
                     {switches.map(mechSwitch =>
-                        <Card onClick={() => alert(`You selected ${mechSwitch.name}`)}>
+                        <Card >
                             <CardBody>
                                 <CardTitle>{mechSwitch.name}</CardTitle>
                                 <CardText>{mechSwitch.type}</CardText>
+                                <Control.button model=".switches" id="switches" name="switches" valueName={this.state.name} valueType={this.state.type} onChange={this.handleSelected}>Select</Control.button>
                             </CardBody>
-                        </Card>)}
-                    
+                        </Card>
+                    )}
                 </div>
-           </LocalForm>
         )
     }
    return <div></div>
@@ -37,15 +38,19 @@ class SearchSwitch extends Component {
     }
 
     handleSubmit(values) {
-        console.log('Current state is:' + JSON.stringify(values));
-        alert('Current state is: ' + JSON.stringify(values));
+        console.log("Current state is: " + JSON.stringify(values));
+        alert("Current state is: " + JSON.stringify(values));
     }
 
     handleSelected(event) {
+        const target = event.target;
+        const value = target.type === 'button' ? target.valueName : target.value;
+        const name = target.name;
+
         this.setState(
             {
-                name: event.name,
-                type: event.type
+                name: event.target.valueName,
+                type: event.target.valueType
             }
         );
     }
@@ -73,7 +78,9 @@ class SearchSwitch extends Component {
                     <div className="Content">
                         <div className="container">
                             <div className="row">
-                                <RenderSwitches switches={this.props.switches} />
+                                <LocalForm onSubmit={values => this.handleSubmit(values)}>  
+                                    <RenderSwitches switches={this.props.switches} />
+                                </LocalForm>
                             </div>
                         </div>
                     </div>

@@ -1,12 +1,13 @@
 import React, { Component }  from 'react';
 import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Form, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Control, LocalForm, Errors } from 'react-redux-form';
 
 function RenderSwitches({switches}) {
     if(switches) {
         return (
-            //<Form onSubmit={this.handleSubmit}>  
-                <div classname="col-md-5 m-1">
+            <LocalForm onSubmit={values => this.handleSubmit(values)}>  
+                <div classname="form-group col-md-5 m-1">
                     {switches.map(mechSwitch =>
                         <Card onClick={() => alert(`You selected ${mechSwitch.name}`)}>
                             <CardBody>
@@ -16,7 +17,7 @@ function RenderSwitches({switches}) {
                         </Card>)}
                     
                 </div>
-           // </Form>
+           </LocalForm>
         )
     }
    return <div></div>
@@ -35,10 +36,9 @@ class SearchSwitch extends Component {
         this.handleSelected = this.handleSelected.bind(this);
     }
 
-    handleSubmit(event) {
-        console.log('The chosen switch is' + JSON.stringify(this.state.mechSwitch.name));
-        alert('Current switch is: ' + JSON.stringify(this.state.mechSwitch.name));
-        event.preventDefault();
+    handleSubmit(values) {
+        console.log('Current state is:' + JSON.stringify(values));
+        alert('Current state is: ' + JSON.stringify(values));
     }
 
     handleSelected(event) {

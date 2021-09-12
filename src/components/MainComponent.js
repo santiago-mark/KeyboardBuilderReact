@@ -1,38 +1,28 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
 import  Home from './HomeComponent';
 import Header from './HeaderComponent';
 import BuildPlanner from './BuildPlannerComponent';
 import SearchKeyboardCase from './SearchKeyboardCaseComponent';
 import SearchKeycapSet from './SearchKeycapSetComponent';
 import SearchSwitch from './SearchSwitchComponent';
-
-import { CABLE } from '../shared/cable';
-import { KEYBOARDCASE } from '../shared/keyboardCase';
-import { KEYBOARDS } from '../shared/keyboards';
-import { KEYCAPSET } from '../shared/keycapSet';
-import { PCB } from '../shared/pcb';
-import { PLATE } from '../shared/plate';
-import { STABILIZERS } from '../shared/stabilizers';
-import { SWITCHES } from '../shared/switches'
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
     return {
+        cable: state.cable,
+        keyboardCases: state.keyboardCases,
+        keycapSets: state.keycapSets,
+        pcb: state.pcb,
+        plate: state.plate,
+        stabilizers: state.stabilizers,
         switches: state.switches
     };
 };
 
 class Main extends Component {
 
-    constructor(props) {
-        super(props);
-        this.switches = SWITCHES;
-        this.keyboardCases = KEYBOARDCASE
-    }
-
     render() {
-
-        
         const HomePage = () => {
             return (
                 <Home 
@@ -54,8 +44,8 @@ class Main extends Component {
                 <Header />
                 <Switch>
                     <Route path='/buildplanner' component={BuildPlanner} />
-                    <Route path='/switches' render={() => <SearchSwitch switches = {this.switches} />} />
-                    <Route path='/keyboardcases' render={() => <SearchKeyboardCase keyboardCases = {this.keyboardCases} />} />
+                    <Route path='/switches' render={() => <SearchSwitch switches = {this.props.switches} />} />
+                    <Route path='/keyboardcases' render={() => <SearchKeyboardCase keyboardCases = {this.props.keyboardCases} />} />
                  </Switch>   
                
                 {/*
@@ -70,4 +60,4 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));

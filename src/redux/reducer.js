@@ -8,6 +8,7 @@ import { STABILIZERS } from '../shared/stabilizers';
 import { SWITCHES } from '../shared/switches'
 
 export const initialState = {
+    switches: SWITCHES,
     cable: CABLE,
     keyboard: KEYBOARDS,
     keyboardCases: KEYBOARDCASE,
@@ -15,7 +16,7 @@ export const initialState = {
     pcb: PCB,
     plate: PLATE,
     stabilizers: STABILIZERS,
-    switches: SWITCHES
+    
 }
 
 export const Reducer = (state = initialState, action) => {

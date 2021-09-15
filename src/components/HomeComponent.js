@@ -17,7 +17,7 @@ function Home(props) {
         <div className="container">
             <div className="row">
                 <div className="col-md m-1">
-                    <RenderCard item={props.switches} />
+                    <RenderCard item={props.switch} />
                 </div>
             </div>
         </div>

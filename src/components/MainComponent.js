@@ -26,7 +26,7 @@ class Main extends Component {
         const HomePage = () => {
             return (
                 <Home 
-                    mechSwitch={this.props.switches.filter(mechSwitch => mechSwitch.featured)[0]}
+                    switches={this.props.switches.filter(mechSwitch => mechSwitch.featured)[0]}
                 />
             );
         };
@@ -34,7 +34,7 @@ class Main extends Component {
         const SwitchWithId = ({match}) => {
             return (
                 <SearchSwitch
-                    mechSwitch={this.props.switches.filter(mechSwitch => mechSwitch.id === +match.params.mechSwitchId)[0]}
+                    switches={this.props.switches.filter(mechSwitch => mechSwitch.id === +match.params.mechSwitchId)[0]}
                 />
             );
         };    
@@ -43,8 +43,10 @@ class Main extends Component {
             <div>
                 <Header />
                 <Switch>
+                    <Route path='/home' component={HomePage} />
                     <Route path='/buildplanner' component={BuildPlanner} />
-                    <Route path='/switches' render={() => <SearchSwitch switches = {this.props.switches} />} />
+                    <Route exact path='/switches' render={() => <SearchSwitch switches = {this.props.switches} />} />
+                    <Route path ='/switches/:switechId' component={SwitchWithId} />
                     <Route path='/keyboardcases' render={() => <SearchKeyboardCase keyboardCases = {this.props.keyboardCases} />} />
                  </Switch>   
                

@@ -3,56 +3,33 @@ import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, 
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
-function RenderSwitches({switches}) {
-    
-    if(switches) {
-        return (
-          
-                <div classname="form-group col-md-5 m-1">
-                    {switches.map(mechSwitch =>
-                        <Card >
-                            <CardBody>
-                                <CardTitle>{mechSwitch.name}</CardTitle>
-                                <CardText>{mechSwitch.type}</CardText>
-                                <Control.button model=".switches" id="switches" name="switches" valueName={this.state.name} valueType={this.state.type} onChange={this.handleSelected}>Select</Control.button>
-                            </CardBody>
-                        </Card>
-                    )}
-                </div>
-        )
-    }
-   return <div></div>
+function RenderSwitchItem({mechSwitch}) {
+    return (
+        <Card>
+            <Link to={`/switches/${mechSwitch.id}`}>        
+                <CardTitle>{mechSwitch.name}</CardTitle>
+            </Link>
+        </Card>
+    );
 }
 
 class SearchSwitch extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
+        this.state = ({
+            id: '',
             name: '',
             type: ''
-        };
+        });
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleSelected = this.handleSelected.bind(this);
+
     }
 
     handleSubmit(values) {
         console.log("Current state is: " + JSON.stringify(values));
         alert("Current state is: " + JSON.stringify(values));
-    }
-
-    handleSelected(event) {
-        const target = event.target;
-        const value = target.type === 'button' ? target.valueName : target.value;
-        const name = target.name;
-
-        this.setState(
-            {
-                name: event.target.valueName,
-                type: event.target.valueType
-            }
-        );
     }
 
     render() {
@@ -78,8 +55,22 @@ class SearchSwitch extends Component {
                     <div className="Content">
                         <div className="container">
                             <div className="row">
-                                <LocalForm onSubmit={values => this.handleSubmit(values)}>  
-                                    <RenderSwitches switches={this.props.switches} />
+                                <LocalForm model="switches">  
+                                    <Row classname="form-group">
+                                    {this.props.switches.map(mechSwitch =>
+                                        <Col>
+                                            <Card >
+                                                <CardBody>
+                                                    <CardTitle>{mechSwitch.name}</CardTitle>
+                                                    <CardText>{mechSwitch.type}</CardText>
+                                                    
+                                                </CardBody>
+                                            </Card>
+                                            <Control.button onClick={() => this.handleSubmit(mechSwitch)} model=".switch" id="switch" name="switch" className="form-control"> Select
+                                            </Control.button>
+                                        </Col>
+                                        )}
+                                    </Row>
                                 </LocalForm>
                             </div>
                         </div>

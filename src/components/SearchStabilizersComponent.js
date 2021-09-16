@@ -3,7 +3,7 @@ import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, 
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
-class SearchKeycapSet extends Component {
+class SearchStabilizers extends Component {
     constructor(props) {
         super(props);
 
@@ -25,7 +25,7 @@ class SearchKeycapSet extends Component {
         return (
             <React.Fragment>
                 <Jumbotron>
-                    Keycap Set
+                    Keyboard Cases
                 </Jumbotron>  
    
                 <div className="Sidebar">
@@ -34,26 +34,25 @@ class SearchKeycapSet extends Component {
                     </Link>           
                     <Container>
                         Filter
-                        <Row><Input type="checkbox" /> PBT</Row>
-                        <Row><Input type="checkbox" /> GMK</Row>
-                        <Row><Input type="checkbox" /> KAT</Row>
+                        <Row><Input type="checkbox" />Durock</Row>
+                        <Row><Input type="checkbox" />C3</Row>
                     </Container>
                 </div>
 
                 <div className="Content">
                     <div className="container">
                         <div className="row">
-                            <LocalForm model="keycapSet">  
+                            <LocalForm model="stabilizers">  
                                 <Row classname="form-group">
-                                    {this.props.keycapSets.map(keycapSet =>
+                                    {this.props.stabilizers.map(stabilizer =>
                                         <Col>
                                             <Card>
                                                 <CardBody>
-                                                    <CardTitle>{keycapSet.name}</CardTitle>
-                                                    <CardText>{keycapSet.formType}</CardText>
+                                                    <CardTitle>{stabilizer.name}</CardTitle>
+                                                    <CardText>{stabilizer.formType}</CardText>
                                                 </CardBody>
                                             </Card>
-                                            <Control.button onClick={() => this.handleSubmit(keycapSet)} model=".keycapSet" id="keycapSet" name="keycapSet" className="form-control"> Select
+                                            <Control.button onClick={() => this.handleSubmit(stabilizer)} model=".stabilizer" id="stabilizer" name="stabilizer" className="form-control"> Select
                                             </Control.button>
                                         </Col>)
                                     }
@@ -67,4 +66,4 @@ class SearchKeycapSet extends Component {
     }
 }
 
-export default SearchKeycapSet;
+export default SearchStabilizers;

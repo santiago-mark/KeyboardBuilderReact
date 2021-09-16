@@ -62,8 +62,7 @@ class SearchSwitch extends Component {
                                             <Card >
                                                 <CardBody>
                                                     <CardTitle>{mechSwitch.name}</CardTitle>
-                                                    <CardText>{mechSwitch.type}</CardText>
-                                                    
+                                                    <CardText>{mechSwitch.type}</CardText> 
                                                 </CardBody>
                                             </Card>
                                             <Control.button onClick={() => this.handleSubmit(mechSwitch)} model=".switch" id="switch" name="switch" className="form-control"> Select

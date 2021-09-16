@@ -1,27 +1,25 @@
 import React, { Component }  from 'react';
 import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Control, LocalForm, Errors } from 'react-redux-form';
 
-function RenderKeyboardCases({keyboardCases}) {
-    if(keyboardCases) {
-        return (
-            <div classname="col-md-5 m-1">
-                {keyboardCases.map(keyboardCase =>
-                    <Card onClick={() => alert(`You picked ${keyboardCase.name}`)}>
-                        <CardBody>
-                            <CardTitle>{keyboardCase.name}</CardTitle>
-                            <CardText>{keyboardCase.formType}</CardText>
-                        </CardBody>
-                    </Card>)}
-                
-            </div>
-        )
-    }
-   return <div></div>
-}
 class SearchKeyboardCase extends Component {
     constructor(props) {
         super(props);
+
+        this.state = ({
+            id: '',
+            name: '',
+            manufacturer: '',
+            formType: ''
+        });
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(values) {
+        console.log("Current state is: " + JSON.stringify(values));
+        alert("Current state is: " + JSON.stringify(values));
     }
 
     render() {
@@ -53,7 +51,22 @@ class SearchKeyboardCase extends Component {
                 <div className="Content">
                     <div className="container">
                         <div className="row">
-                            <RenderKeyboardCases keyboardCases={this.props.keyboardCases} />
+                            <LocalForm model="keyboardCase">  
+                                <Row classname="form-group">
+                                    {this.props.keyboardCases.map(keyboardCase =>
+                                        <Col>
+                                            <Card>
+                                                <CardBody>
+                                                    <CardTitle>{keyboardCase.name}</CardTitle>
+                                                    <CardText>{keyboardCase.formType}</CardText>
+                                                </CardBody>
+                                            </Card>
+                                            <Control.button onClick={() => this.handleSubmit(keyboardCase)} model=".keyboardCase" id="keyboardCase" name="keyboardCase" className="form-control"> Select
+                                            </Control.button>
+                                        </Col>)
+                                    }
+                                </Row>
+                            </LocalForm>
                         </div>
                     </div>
                 </div>   

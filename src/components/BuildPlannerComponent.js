@@ -16,14 +16,14 @@ class BuildPlanner extends Component{
           other: '' 
         }
 
-        this.handleSubmit = this.handleSubmit(this);
+       // this.handleSubmit = this.handleSubmit(this);
     }
-
+/*}
     handleSubmit(values) {
       console.log("Current state is: " + JSON.stringify(values.state));
       alert("Current state is: " + JSON.stringify(values.state));
   }
-
+*/
 
     render() {
         return (
@@ -72,6 +72,35 @@ class BuildPlanner extends Component{
                       </Col>
                     </Row>
 
+                    <Row id="keycapRow">
+                      <Col>
+                          <h5>Keycap Set</h5>
+                      </Col>
+                      <Col>
+                        <Link to="/keycapset">
+                            <Button color="primary">Select</Button>{''}
+                          </Link>
+                      </Col>
+                      <Col>
+                          <Input type="checkbox" />
+                      </Col>
+                      <Col>
+                        <FormGroup>
+                          <Input type="price" name="price" id="keycapPrice" />
+                        </FormGroup>
+                      </Col>
+                      <Col>
+                        <FormGroup>
+                          <Input type="retailer" name="retailer" id="keycapRetailer" />
+                        </FormGroup>
+                      </Col>
+                      <Col md="4">
+                        <FormGroup>
+                          <Input type="textarea" name="information" id="keycapInfo" />
+                        </FormGroup>
+                      </Col>
+                    </Row>
+
                     <Row id="switchesRow" className="form-group">
                       <Col>
                           <h5>Switches</h5>
@@ -101,6 +130,35 @@ class BuildPlanner extends Component{
                       </Col>
                     </Row>
                     
+                    <Row id="stabilizersRow">
+                      <Col>
+                          <h5>Stabilizers</h5>
+                      </Col>
+                      <Col>
+                        <Link to="/stabilizers">
+                            <Button color="primary">Select</Button>{''}
+                          </Link>
+                      </Col>
+                      <Col>
+                          <Input type="checkbox" />
+                      </Col>
+                      <Col>
+                        <FormGroup>
+                          <Input type="price" name="price" id="stabilizerPrice" />
+                        </FormGroup>
+                      </Col>
+                      <Col>
+                        <FormGroup>
+                          <Input type="retailer" name="retailer" id="stabilizerRetailer" />
+                        </FormGroup>
+                      </Col>
+                      <Col md="4">
+                        <FormGroup>
+                          <Input type="textarea" name="information" id="stabilizerInfo" />
+                        </FormGroup>
+                      </Col>
+                    </Row>
+
                     <Row id="plateRow">
                       <Col>
                           <h5>Plate</h5>

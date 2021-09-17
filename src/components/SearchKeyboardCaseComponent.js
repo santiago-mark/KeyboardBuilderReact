@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
@@ -25,14 +25,15 @@ class SearchKeyboardCase extends Component {
     render() {
         return (
             <React.Fragment>
-                <Jumbotron>
-                    Keyboard Cases
+                <Breadcrumb>
+                    <BreadcrumbItem><Link to="/buildplanner">Build Planner</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>Keyboard Cases</BreadcrumbItem>
+                </Breadcrumb>
+                <Jumbotron className="bg-dark text-white">
+                    <h1>Keyboard Cases</h1>
                 </Jumbotron>  
    
-                <div className="Sidebar">
-                    <Link to="/buildplanner">
-                          <Button color="primary">Back</Button>{''}
-                    </Link>           
+                <div className="Sidebar">    
                     <Container>
                         Filter
                         <Row><Input type="checkbox" /> Full Size</Row>
@@ -61,8 +62,11 @@ class SearchKeyboardCase extends Component {
                                                     <CardText>{keyboardCase.formType}</CardText>
                                                 </CardBody>
                                             </Card>
-                                            <Control.button onClick={() => this.handleSubmit(keyboardCase)} model=".keyboardCase" id="keyboardCase" name="keyboardCase" className="form-control"> Select
-                                            </Control.button>
+                                            <Link to="/buildplanner">
+                                                <Control.button onClick={() => this.handleSubmit(keyboardCase)} model=".keyboardCase" id="keyboardCase" name="keyboardCase" className="form-control">
+                                                Select
+                                                </Control.button>
+                                            </Link>
                                         </Col>)
                                     }
                                 </Row>

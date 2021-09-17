@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
@@ -24,14 +24,15 @@ class SearchKeycapSet extends Component {
     render() {
         return (
             <React.Fragment>
-                <Jumbotron>
-                    Keycap Set
+                <Breadcrumb>
+                    <BreadcrumbItem><Link to="/buildplanner">Build Planner</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>Keycap Set</BreadcrumbItem>
+                </Breadcrumb>
+                <Jumbotron className="bg-dark text-white">
+                    <h1>Keycap Set</h1>
                 </Jumbotron>  
    
-                <div className="Sidebar">
-                    <Link to="/buildplanner">
-                          <Button color="primary">Back</Button>{''}
-                    </Link>           
+                <div className="Sidebar">          
                     <Container>
                         Filter
                         <Row><Input type="checkbox" /> PBT</Row>
@@ -53,8 +54,10 @@ class SearchKeycapSet extends Component {
                                                     <CardText>{keycapSet.formType}</CardText>
                                                 </CardBody>
                                             </Card>
-                                            <Control.button onClick={() => this.handleSubmit(keycapSet)} model=".keycapSet" id="keycapSet" name="keycapSet" className="form-control"> Select
-                                            </Control.button>
+                                            <Link to="/buildplanner">
+                                                <Control.button onClick={() => this.handleSubmit(keycapSet)} model=".keycapSet" id="keycapSet" name="keycapSet" className="form-control"> Select
+                                                </Control.button>
+                                            </Link>
                                         </Col>)
                                     }
                                 </Row>

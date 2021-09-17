@@ -9,7 +9,7 @@ class BuildPlanner extends Component{
         super(props);
 
         this.state = {
-          keyboardCase: '',
+          keyboardCase: [],
           switches: '',
           plate: '',
           cable: '',
@@ -28,7 +28,7 @@ class BuildPlanner extends Component{
     render() {
         return (
             <React.Fragment>
-                 <Jumbotron>
+                 <Jumbotron className="bg-dark text-white">
                   <h1>Plan Build</h1>
                 </Jumbotron>
 
@@ -159,6 +159,7 @@ class BuildPlanner extends Component{
                       </Col>
                     </Row>
 
+{/*
                     <Row id="plateRow">
                       <Col>
                           <h5>Plate</h5>
@@ -238,6 +239,12 @@ class BuildPlanner extends Component{
                           <Input type="textarea" name="text" id="otherInfo" />
                         </FormGroup>
                       </Col>
+                    </Row>
+*/}
+                    <Row>
+                      <Button>
+                        Submit
+                      </Button>
                     </Row>
                   </LocalForm>
               </Container>

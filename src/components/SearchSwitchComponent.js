@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Form, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Form, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
@@ -35,45 +35,47 @@ class SearchSwitch extends Component {
     render() {
         return (
             <React.Fragment>
-                <Jumbotron>
-                    Switches
+                 <Breadcrumb>
+                    <BreadcrumbItem><Link to="/buildplanner">Build Planner</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>Switches</BreadcrumbItem>
+                </Breadcrumb>
+                <Jumbotron className="bg-dark text-white">
+                    <h1>Switches</h1>
                 </Jumbotron>     
 
-                    <div className="Sidebar">
-                        <Link to="/buildplanner">
-                          <Button color="primary">Back</Button>{''}
-                        </Link>
-                        
-                        <Container>
-                            <Row>Filter</Row>
-                            <Row><Input type="checkbox" /> Clicky</Row>
-                            <Row><Input type="checkbox" /> Linear</Row>
-                            <Row><Input type="checkbox" /> Tactile</Row>
-                        </Container>
-                    </div>
+                <div className="Sidebar">
+                    <Container>
+                        <Row>Filter</Row>
+                        <Row><Input type="checkbox" /> Clicky</Row>
+                        <Row><Input type="checkbox" /> Linear</Row>
+                        <Row><Input type="checkbox" /> Tactile</Row>
+                    </Container>
+                </div>
 
-                    <div className="Content">
-                        <div className="container">
-                            <div className="row">
-                                <LocalForm model="switches">  
-                                    <Row classname="form-group">
-                                    {this.props.switches.map(mechSwitch =>
-                                        <Col>
-                                            <Card >
-                                                <CardBody>
-                                                    <CardTitle>{mechSwitch.name}</CardTitle>
-                                                    <CardText>{mechSwitch.type}</CardText> 
-                                                </CardBody>
-                                            </Card>
+                <div className="Content">
+                    <div className="container">
+                        <div className="row">
+                            <LocalForm model="switches">  
+                                <Row classname="form-group">
+                                {this.props.switches.map(mechSwitch =>
+                                    <Col>
+                                        <Card >
+                                            <CardBody>
+                                                <CardTitle>{mechSwitch.name}</CardTitle>
+                                                <CardText>{mechSwitch.type}</CardText> 
+                                            </CardBody>
+                                        </Card>
+                                        <Link to="/buildplanner">
                                             <Control.button onClick={() => this.handleSubmit(mechSwitch)} model=".switch" id="switch" name="switch" className="form-control"> Select
                                             </Control.button>
-                                        </Col>
-                                        )}
-                                    </Row>
-                                </LocalForm>
-                            </div>
+                                        </Link>
+                                    </Col>
+                                    )}
+                                </Row>
+                            </LocalForm>
                         </div>
                     </div>
+                </div>
                 
             </React.Fragment>
         );

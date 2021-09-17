@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  Home from './HomeComponent';
+import Home from './HomeComponent';
 import Header from './HeaderComponent';
 import BuildPlanner from './BuildPlannerComponent';
 import SearchKeyboardCase from './SearchKeyboardCaseComponent';
@@ -27,10 +27,10 @@ class Main extends Component {
         const HomePage = () => {
             return (
                 <Home 
-                    keyboardCases={this.props.keyboardCases.filter(keyboardCase => keyboardCase.featured[0])}
-                    keycapSets={this.props.keycapSets.filter(keycapSet => keycapSet.featured[0])}
-                    switches={this.props.switches.filter(mechSwitch => mechSwitch.featured)[0]}
-                    stabilizers={this.props.stabilizers.filter(stabilizer => stabilizer.featured)[0]}
+                    keyboardCases={this.props.keyboardCases}
+                    keycapSets={this.props.keycapSets}
+                    switches={this.props.switches}
+                    stabilizers={this.props.stabilizers}
                 />
             );
         };
@@ -49,7 +49,7 @@ class Main extends Component {
                 <Switch>
                     <Route path='/home' component={HomePage} />
                     <Route path='/buildplanner' component={BuildPlanner} />
-                    <Route exact path='/keyboardcase' render={() => <SearchKeyboardCase keyboardCases = {this.props.keyboardCases} />} />
+                    <Route exact path='/keyboardcases' render={() => <SearchKeyboardCase keyboardCases = {this.props.keyboardCases} />} />
                     <Route exact path='/keycapset' render={() => <SearchKeycapSet keycapSets = {this.props.keycapSets} />} />
                     <Route exact path='/switches' render={() => <SearchSwitch switches = {this.props.switches} />} />
                     <Route exact path='/stabilizers' render={() => <SearchStabilizers stabilizers = {this.props.stabilizers} />} />

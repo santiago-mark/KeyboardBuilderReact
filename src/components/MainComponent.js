@@ -8,6 +8,7 @@ import SearchSwitch from './SearchSwitchComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SearchStabilizers from './SearchStabilizersComponent';
+import { selectKeyboardCase } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
     return {
@@ -19,6 +20,10 @@ const mapStateToProps = state => {
         stabilizers: state.stabilizers,
         switches: state.switches
     };
+};
+
+const mapDispatchToProps = {
+    selectKeyboardCase: (id, name, manufacturer, formType) => (selectKeyboardCase(id, name, manufacturer, formType))
 };
 
 class Main extends Component {
@@ -68,4 +73,4 @@ class Main extends Component {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(Main));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

@@ -9,14 +9,15 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SearchStabilizers from './SearchStabilizersComponent';
 import { selectKeyboardCase } from '../redux/ActionCreators';
+//import { selectKeyboardCase } from './SearchKeyboardCaseComponent';
 
 const mapStateToProps = state => {
     return {
-        cable: state.cable,
+        //cable: state.cable,
         keyboardCases: state.keyboardCases,
         keycapSets: state.keycapSets,
-        pcb: state.pcb,
-        plate: state.plate,
+        //pcb: state.pcb,
+        //plate: state.plate,
         stabilizers: state.stabilizers,
         switches: state.switches
     };

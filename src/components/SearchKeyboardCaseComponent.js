@@ -3,6 +3,10 @@ import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, 
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
+export const selectKeyboardCase = (state) => {
+    return `${state.id} ${state.name} ${state.manufacturer} ${state.formType}`
+}
+
 class SearchKeyboardCase extends Component {
     constructor(props) {
         super(props);

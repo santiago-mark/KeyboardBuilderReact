@@ -9,12 +9,12 @@ import { SWITCHES } from '../shared/switches'
 
 export const initialState = {
     switches: SWITCHES,
-    cable: CABLE,
-    keyboard: KEYBOARDS,
+    //cable: CABLE,
+    //keyboard: KEYBOARDS,
     keyboardCases: KEYBOARDCASE,
     keycapSets: KEYCAPSET,
-    pcb: PCB,
-    plate: PLATE,
+    //pcb: PCB,
+    //plate: PLATE,
     stabilizers: STABILIZERS,
     
 }

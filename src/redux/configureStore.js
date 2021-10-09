@@ -3,8 +3,8 @@ import { KeyboardCase } from './keyboardCase'
 import { KeycapSet } from './keycapSet'
 import { Switches } from './switches'
 import { Stabilizers } from './stabilizers'
-//import thunk from 'redux-thunk';
-//import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
 import { Reducer, initialState } from './reducer';
 
@@ -18,7 +18,7 @@ export const ConfigureStore = () => {
         }),
         //applyMiddleware(thunk, logger)
         //Reducer,
-        //initialState
+        initialState
     );
 
     return store;

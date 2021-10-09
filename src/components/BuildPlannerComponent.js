@@ -2,7 +2,8 @@ import React, { Component }  from 'react';
 import { Control, LocalForm } from 'react-redux-form';
 import { NavLink, Link } from 'react-router-dom';
 import { Navbar, NavbarBrand, Nav, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Button, Input } from 'reactstrap';
-import {selectKeyboardCase} from './SearchKeyboardCaseComponent'
+import { selectKeyboardCase } from './SearchKeyboardCaseComponent'
+//import { selectKeyboardCase } from '../redux/ActionCreators'
 
 class BuildPlanner extends Component{
     

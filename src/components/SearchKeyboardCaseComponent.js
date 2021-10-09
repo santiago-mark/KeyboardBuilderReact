@@ -2,10 +2,14 @@ import React, { Component }  from 'react';
 import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
+//import { selectKeyboardCase } from '../redux/ActionCreators'
+
 
 export const selectKeyboardCase = (state) => {
     return `${state.id} ${state.name} ${state.manufacturer} ${state.formType}`
+    
 }
+
 
 class SearchKeyboardCase extends Component {
     constructor(props) {
@@ -24,6 +28,14 @@ class SearchKeyboardCase extends Component {
     handleSubmit(values) {
         console.log("Current state is: " + JSON.stringify(values));
         alert("Current state is: " + JSON.stringify(values));
+        this.setState({
+            id: values.id,
+            name: values.name,
+            manufacturer: values.manufacturer,
+            formType: values.formType
+        });
+        selectKeyboardCase(values.id, values.name, values.manufacturer, values.formType);
+        //this.props.dispatch(selectKeyboardCase(this.state));
     }
 
     render() {

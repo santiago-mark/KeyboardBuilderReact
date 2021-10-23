@@ -2,9 +2,16 @@ import React, { Component }  from 'react';
 import { Control, LocalForm } from 'react-redux-form';
 import { NavLink, Link } from 'react-router-dom';
 import { Navbar, NavbarBrand, Nav, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Button, Input } from 'reactstrap';
-import { selectKeyboardCase } from './SearchKeyboardCaseComponent'
-//import { selectKeyboardCase } from '../redux/ActionCreators'
+//import { selectKeyboardCase } from './SearchKeyboardCaseComponent'
+import { selectKeyboardCase } from '../redux/ActionCreators'
 
+/*
+const SelectedKeyboardCase = (values) => {
+  return (
+    selectKeyboardCase(values)
+  );
+}
+*/
 class BuildPlanner extends Component{
     
     constructor(props) {
@@ -50,8 +57,13 @@ class BuildPlanner extends Component{
                     <Row id="keyboardRow">
                       <Col>
                           <h5>Keyboard Case</h5>
+                          
                           {this.state.keyboardCase}
+                          
+                          {/*
+                          <SelectedKeyboardCase keyboardCase = {this.state.keyboardCase} />
                           {selectKeyboardCase(this.state.keyboardCase)}
+                          */}
                       </Col>
                       <Col>
                         <Link to="/keyboardcases">

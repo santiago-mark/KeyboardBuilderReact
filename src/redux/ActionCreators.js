@@ -1,5 +1,25 @@
 import * as ActionTypes from './ActionTypes'
 
+export const setKeyboardCases  = (keyboardCases) => ({
+    type: ActionTypes.SET_KEYBOARDCASE,
+    payload: {
+        keyboardCases
+    }
+})
+
+export const selectKeyboardCase = (keyboardCase) => ({
+    type: ActionTypes.SELECT_KEYBOARDCASE,
+    payload: {
+        keyboardCase
+    }
+})
+
+export const loadKeyboardCases = (keyboardCases) => ({
+    type: ActionTypes.LOAD_KEYBOARDCASES,
+    payload: keyboardCases
+})
+
+/*
 export const selectKeyboardCase = (id, name, manufacturer, formType) => ({
     type: ActionTypes.SELECT_KEYBOARDCASE,
     payload: {
@@ -9,7 +29,7 @@ export const selectKeyboardCase = (id, name, manufacturer, formType) => ({
         formType: formType
     }
 })
-
+*/
 export const selectKeycapSet  = (id, name, manufacturer) => ({
     type: ActionTypes.SELECT_KEYCAPSET,
     payload: {
@@ -35,4 +55,14 @@ export const selectSwitches  = (id, name, type) => ({
         name: name,
         type: type
     }
+})
+
+export const loadKeycapSets = (keycapSets) => ({
+    type: ActionTypes.LOAD_KEYCAPSETS,
+    payload: keycapSets
+})
+
+export const setKeycapSet = (keycapSet) => ({
+    type: ActionTypes.SET_KEYCAPSET,
+    payload: keycapSet
 })

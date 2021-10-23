@@ -7,11 +7,13 @@ import SearchKeycapSet from './SearchKeycapSetComponent';
 import SearchSwitch from './SearchSwitchComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { actions } from 'react-redux-form';
 import SearchStabilizers from './SearchStabilizersComponent';
 import { selectKeyboardCase } from '../redux/ActionCreators';
+import { CurrentBuild } from '../redux/currentBuild';
 //import { selectKeyboardCase } from './SearchKeyboardCaseComponent';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         //cable: state.cable,
         keyboardCases: state.keyboardCases,
@@ -19,12 +21,13 @@ const mapStateToProps = state => {
         //pcb: state.pcb,
         //plate: state.plate,
         stabilizers: state.stabilizers,
-        switches: state.switches
+        switches: state.switches,
+        currentBuild: state.currentBuild
     };
 };
 
 const mapDispatchToProps = {
-    selectKeyboardCase: (id, name, manufacturer, formType) => (selectKeyboardCase(id, name, manufacturer, formType))
+    selectKeyboardCase: (keyboardCase) => (selectKeyboardCase(keyboardCase))
 };
 
 class Main extends Component {
@@ -37,6 +40,7 @@ class Main extends Component {
                     keycapSets={this.props.keycapSets}
                     switches={this.props.switches}
                     stabilizers={this.props.stabilizers}
+                    currentBuild={this.props.currentBuild}
                 />
             );
         };

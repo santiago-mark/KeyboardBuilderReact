@@ -1,15 +1,90 @@
 import React, { Component }  from 'react';
 import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Jumbotron, Container, Row, Col, Label, FormGroup, Button, Input, CardDeck, Card, CardBody, CardImg, CardText, CardSubtitle, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
-//import { selectKeyboardCase } from '../redux/ActionCreators'
+import { connect, useSelector } from 'react-redux';
+import { selectKeyboardCase } from '../redux/ActionCreators'
+import { KEYBOARDCASE } from '../shared/keyboardCase'
 
+/*
+const mapStateToProps = state => {
+    return {
+        keyboardCase: state.keyboardCases
+    }
+}
 
+const mapDispatchToProps = {
+    selectKeyboardCase: (id, name, manufacturer, formType) => (selectKeyboardCase(id, name, manufacturer, formType))
+};
+
+/*
 export const selectKeyboardCase = (state) => {
     return `${state.id} ${state.name} ${state.manufacturer} ${state.formType}`
     
 }
+*/
+/*
+function RenderKeyboardCases({props}) {
+    const keyboardCase = props.map(keyboardCase => {
+        return (
+            <Col>
+                <Card>
+                    <CardBody>
+                        <CardTitle>{keyboardCase.name}</CardTitle>
+                        <CardText>{keyboardCase.formType}</CardText>
+                    </CardBody>
+                </Card>
+                <Link to="/buildplanner">
+                    <Control.button onClick={() => this.handleSubmit(keyboardCase)} model=".keyboardCase" id="keyboardCase" name="keyboardCase" className="form-control">
+                    Select
+                    </Control.button>
+                </Link>
+            </Col>
+            );
+        }
 
+    )
+    
+    return (
+        {keyboardCase}
+    );
+
+}
+    /*
+    if (keyboardCase) {
+        return (
+            <Col>
+                <Card>
+                    <CardBody>
+                        <CardTitle>{keyboardCase.name}</CardTitle>
+                        <CardText>{keyboardCase.formType}</CardText>
+                    </CardBody>
+                </Card>
+                <Link to="/buildplanner">
+                    <Control.button onClick={() => this.handleSubmit(keyboardCase)} model=".keyboardCase" id="keyboardCase" name="keyboardCase" className="form-control">
+                    Select
+                    </Control.button>
+                </Link>
+            </Col>
+            */
+
+const KeyboardCase = ({keyboardCase}) => {
+    return (
+        <Col>
+            <Card>
+                <CardBody>
+                    <CardTitle>{keyboardCase.name}</CardTitle>
+                    <CardText>{keyboardCase.formType}</CardText>
+                </CardBody>
+            </Card>
+            <Link to="/buildplanner">
+                <Control.button onClick={() => selectKeyboardCase(keyboardCase)} model=".keyboardCase" id="keyboardCase" name="keyboardCase" className="form-control">
+                Select
+                </Control.button>
+            </Link>
+        </Col>
+    );
+}
 
 class SearchKeyboardCase extends Component {
     constructor(props) {
@@ -28,17 +103,24 @@ class SearchKeyboardCase extends Component {
     handleSubmit(values) {
         console.log("Current state is: " + JSON.stringify(values));
         alert("Current state is: " + JSON.stringify(values));
+        
         this.setState({
             id: values.id,
             name: values.name,
             manufacturer: values.manufacturer,
             formType: values.formType
         });
-        selectKeyboardCase(values.id, values.name, values.manufacturer, values.formType);
+        
+        //this.props.selectKeyboardCase(values.id, values.name, values.manufacturer, values.formType);
         //this.props.dispatch(selectKeyboardCase(this.state));
     }
 
+   
+
     render() {
+        //const keyboardCaseId = this.props.getParam('id');
+        //const keyboardCase = this.props.keyboardCases.keyboardCases.filter(keyboardCase => keyboardCase.id === keyboardCaseId)[0];
+
         return (
             <React.Fragment>
                 <Breadcrumb>
@@ -70,21 +152,32 @@ class SearchKeyboardCase extends Component {
                         <div className="row">
                             <LocalForm model="keyboardCase">  
                                 <Row classname="form-group">
-                                    {this.props.keyboardCases.map(keyboardCase =>
-                                        <Col>
-                                            <Card>
-                                                <CardBody>
-                                                    <CardTitle>{keyboardCase.name}</CardTitle>
-                                                    <CardText>{keyboardCase.formType}</CardText>
-                                                </CardBody>
-                                            </Card>
-                                            <Link to="/buildplanner">
-                                                <Control.button onClick={() => this.handleSubmit(keyboardCase)} model=".keyboardCase" id="keyboardCase" name="keyboardCase" className="form-control">
-                                                Select
-                                                </Control.button>
-                                            </Link>
-                                        </Col>)
-                                    }
+                                    {KEYBOARDCASE.map(keyboardCase =>
+                                        <KeyboardCase keyboardCase={keyboardCase} />
+                                    )}
+
+                                    {/*
+                                            <Col>
+                                                <Card>
+                                                    <CardBody>
+                                                        <CardTitle>{keyboardCase.name}</CardTitle>
+                                                        <CardText>{keyboardCase.formType}</CardText>
+                                                    </CardBody>
+                                                </Card>
+                                                <Link to="/buildplanner">
+                                                    <Control.button onClick={() => this.handleSubmit(keyboardCase)} model=".keyboardCase" id="keyboardCase" name="keyboardCase" className="form-control">
+                                                    Select
+                                                    </Control.button>
+                                                </Link>
+                                            </Col>)
+                                        }
+                                   */
+                                    /*
+                                    
+                                     
+                                    
+                                    */}
+                                   
                                 </Row>
                             </LocalForm>
                         </div>

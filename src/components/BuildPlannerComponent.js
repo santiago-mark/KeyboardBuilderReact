@@ -21,10 +21,14 @@ class BuildPlanner extends Component{
           keyboardCase: 'test state for keyboard',
           keycapSet: '',
           switches: '',
-          stabilizers: ''
+          stabilizers: '',
           //plate: '',
           //cable: '',
           //other: '' 
+          currentBuild: {
+            chosenKeyboardCase: ''
+          }
+          
         }
 
        // this.handleSubmit = this.handleSubmit(this);
@@ -58,7 +62,7 @@ class BuildPlanner extends Component{
                       <Col>
                           <h5>Keyboard Case</h5>
                           
-                          {this.state.keyboardCase}
+                          {this.state.currentBuild.chosenKeyboardCase}
                           
                           {/*
                           <SelectedKeyboardCase keyboardCase = {this.state.keyboardCase} />

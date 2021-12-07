@@ -6,23 +6,32 @@ import { Stabilizers } from './stabilizers'
 import { CurrentBuild } from './currentBuild';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { Reducer, initialState } from './reducer';
+//import { Reducer, initialState } from './reducer';
 import { composeWithDevTools } from 'redux-devtools-extension'
 
+const mainReducer = combineReducers({
+    keyboardCases: KeyboardCase,
+    keycapSets: KeycapSet,
+    switches: Switches,
+    stabilizers: Stabilizers,
+    currentBuild: CurrentBuild,
+})
+/*
+const rootReducer = combineReducers({
+    keyboardBuild: Reducer
+})
+*/
 export const ConfigureStore = () => {
    const store = createStore(
-      combineReducers({
-            keyboardCases: KeyboardCase,
-            keycapSets: KeycapSet,
-            switches: Switches,
-            stabilizers: Stabilizers,
-            currentBuild: CurrentBuild
-        }),
-        //applyMiddleware(thunk, logger),
+        //rootReducer, composeWithDevTools()  
+        mainReducer, composeWithDevTools(applyMiddleware(thunk, logger))
+        
         //Reducer,
         //initialState, 
-        composeWithDevTools()
+        
     );
 
     return store;
+    
 };
+

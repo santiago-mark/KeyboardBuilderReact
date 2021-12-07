@@ -19,6 +19,11 @@ export const loadKeyboardCases = (keyboardCases) => ({
     payload: keyboardCases
 })
 
+export const removeKeyboardCase = (keyboardCases) => ({
+    type: ActionTypes.REMOVE_SELECTED_KEYBOARDCASE,
+    payload: keyboardCases
+})
+
 /*
 export const selectKeyboardCase = (id, name, manufacturer, formType) => ({
     type: ActionTypes.SELECT_KEYBOARDCASE,

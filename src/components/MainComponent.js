@@ -12,6 +12,8 @@ import SearchStabilizers from './SearchStabilizersComponent';
 import { selectKeyboardCase } from '../redux/ActionCreators';
 import { CurrentBuild } from '../redux/currentBuild';
 //import { selectKeyboardCase } from './SearchKeyboardCaseComponent';
+import KeyboardCaseDetails from './KeyboardCaseDetails'
+import KeyboardCaseListing from './KeyboardCaseListing'
 
 const mapStateToProps = (state) => {
     return {
@@ -56,13 +58,18 @@ class Main extends Component {
         return (
             <div>
                 <Header />
-                <Switch>
+                <Switch>                  
                     <Route path='/home' component={HomePage} />
                     <Route path='/buildplanner' component={BuildPlanner} />
-                    <Route exact path='/keyboardcases' render={() => <SearchKeyboardCase keyboardCases = {this.props.keyboardCases} />} />
+                    <Route exact path="/keyboardCases" component={KeyboardCaseListing} />
+                    <Route exact path="/keyboardCases/:keyboardCaseID" component={KeyboardCaseDetails} />
                     <Route exact path='/keycapset' render={() => <SearchKeycapSet keycapSets = {this.props.keycapSets} />} />
                     <Route exact path='/switches' render={() => <SearchSwitch switches = {this.props.switches} />} />
                     <Route exact path='/stabilizers' render={() => <SearchStabilizers stabilizers = {this.props.stabilizers} />} />
+                    {/*
+                    <Route exact path="/" component={Products} />
+                    <Route exact path="/build" component={Build} />
+                    */}
                 </Switch>   
                
                 {/*
